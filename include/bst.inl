@@ -27,10 +27,8 @@ void BST< KeyType, ValueType, KeyTypeLess >::insert( const KeyType & key , const
 template < typename KeyType, typename ValueType, typename KeyTypeLess>
 bool BST< KeyType, ValueType, KeyTypeLess >::contains( const BTNode * root , const KeyType & key ) const
 {
-    if (root == nullptr)
+    if (root != nullptr)
     {
-        return false;
-    }else{
         if (root->key == key)
         {
             return true;
@@ -42,8 +40,11 @@ bool BST< KeyType, ValueType, KeyTypeLess >::contains( const BTNode * root , con
             }
         }
     }
+    else{
+        return false;        
+    }
 
-    return false;
+    //return false;
 }
 //Public contains
 template < typename KeyType, typename ValueType, typename KeyTypeLess>
@@ -56,10 +57,8 @@ bool BST< KeyType, ValueType, KeyTypeLess >::contains(const KeyType & key ) cons
 template < typename KeyType, typename ValueType, typename KeyTypeLess>
 bool BST< KeyType, ValueType, KeyTypeLess >::retrieve( const BTNode * root , const KeyType & key, ValueType & value ) const
 {
-    if (root == nullptr)
+    if (root != nullptr)
     {
-        return false;
-    }else{
         if (root->key == key)
         {
             value = root->data;
@@ -71,9 +70,12 @@ bool BST< KeyType, ValueType, KeyTypeLess >::retrieve( const BTNode * root , con
                 retrieve(root->right, key, value);
             }
         }
-    }
+    }else
+    {
+        return false;    
+    }    
 
-    return false;
+    //return false;
 }
 //Public retrieve
 template < typename KeyType, typename ValueType, typename KeyTypeLess>

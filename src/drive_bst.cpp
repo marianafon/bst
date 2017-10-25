@@ -53,7 +53,6 @@ int main()
         { 10, "ten" }
     };
 
-
     // Print the input
     {
         size_t insertion_order[] = { 5, 1, 7, 0, 3, 2 };
@@ -74,6 +73,8 @@ int main()
         };
         //BST< size_t, std::string, decltype( compare_keys ) > tree( compare_keys );
 #endif
+        std::cout << ">>> Empty: " << tree.empty();
+        std::cout << ">>> Size: " << tree.size() << std::endl;
 
         std::cout << ">>> Inserting data:\n";
         for( const auto & e : insertion_order )
@@ -84,10 +85,17 @@ int main()
         
         std::cout << "\n>>> Initial Tree:\n" << tree << std::endl;
 
+        //BST< size_t, std::string, decltype( compare_keys ) > copyTree(tree);
+        //std::cout << "\n>>> Copy Tree:\n" << copyTree << std::endl;
+
+        std::cout << ">>> Empty: " << tree.empty();        
+        std::cout << ">>> Size: " << tree.size() << std::endl;;
+
         tree.remove(data[5].first);
         std::cout << "\n>>> Remove:\n" << tree << std::endl;
         std::cout << std::endl;
-        
+
+        std::cout << ">>> Size: " << tree.size() << std::endl;
 
         std::cout << ">>> Inorder:"<<std::endl;
         tree.inorder(Print);
@@ -134,8 +142,6 @@ int main()
         }else{
             std::cout <<  "False" << std::endl;
         }        
-
-
     }
 
     return EXIT_SUCCESS;

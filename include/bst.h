@@ -49,13 +49,12 @@ class BST
                 , left( lt_ )
                 , right( rt_ )
                 { /* empty */ }
-            /*
+            
             ~BTNode()
             {
-                delete left;
-                delete right;
-            }
-            */
+                delete (left);
+                delete (right);
+            }            
         };
 
         BTNode *m_root; //!< Pointer to the root of the entire tree.
@@ -221,7 +220,9 @@ class BST
         //! Regular destructor.
         /*! The destructor frees all the memory allocated while creating the BST.
          */
-        ~BST(){};
+        ~BST(){
+            delete( m_root );
+        };
 
         //! The range constructor.
         /*!
