@@ -270,6 +270,7 @@ class BST
          */
         BST & operator=( const BST & rhs ) ;
 
+
         //! The initializer list assignment operator.
         /*!
          *  The BST initializer list assignment operator.

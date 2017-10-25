@@ -102,7 +102,7 @@ int main()
         std::cout << std::endl;
 
 
-        std::cout << ">>> Retrieve: 3"<<std::endl;
+        std::cout << ">>> Retrieve: 3 "<<std::endl;
         std::string value = "-";
 
         std::cout <<  "Valor antes: " << value;
@@ -112,7 +112,7 @@ int main()
             std::cout <<  " Valor depois: " << value << " Não encontrado" << std::endl;
         }
          
-        std::cout << ">>> Retrieve: 5"<<std::endl;
+        std::cout << ">>> Retrieve: 5 "<<std::endl;
         value = "-";
         std::cout <<  "Valor antes: " << value;        
         if (tree.retrieve(5, value)){
@@ -121,14 +121,14 @@ int main()
             std::cout <<  " Valor depois: " << value << " Não encontrado" << std::endl;
         }        
     
-        std::cout << ">>> Contains: 7"<<std::endl;
+        std::cout << ">>> Contains: 7 ";
         if (tree.contains(7)){
             std::cout <<  "True" << std::endl;
         }else{
             std::cout <<  "False" << std::endl;
         }
          
-        std::cout << ">>> Contains: 5"<<std::endl;
+        std::cout << ">>> Contains: 5 ";
         if (tree.contains(5)){
             std::cout <<  "True" << std::endl;
         }else{

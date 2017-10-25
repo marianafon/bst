@@ -224,3 +224,45 @@ void BST< KeyType, ValueType, KeyTypeLess >::postorder(const UnaryFunction & vis
 {
     postorder(m_root, visit);
 }
+/*========================================================================================================*/
+//Clone
+
+template < typename KeyType, typename ValueType, typename KeyTypeLess>
+typename BST< KeyType, ValueType, KeyTypeLess >::BTNode * BST< KeyType, ValueType, KeyTypeLess >::clone(const BTNode * root)   
+{
+    //Verifica o caso base, root é nulo
+    //Cria um nó pra a nova árvore
+    //Copia recursivamente cada nó seguindo a estrutura da árvore base
+    //Retorna um ponteiro pra o nó da nova árvore
+
+    if (root == nullptr)
+    {
+        return nullptr;
+    }
+
+    BTNode * newRoot = new BTNode(root->key, root->data);
+
+    newRoot->left = clone(root->left);
+    newRoot->right = clone(root->right);
+
+    return newRoot; 
+}
+/*========================================================================================================*/
+template<typename KeyType , typename ValueType, typename KeyTypeLess >
+BST< KeyType, ValueType, KeyTypeLess > & BST< KeyType, ValueType, KeyTypeLess >::operator= (const BST< KeyType, ValueType, KeyTypeLess > & rhs)   
+{
+    delete(m_root);
+    m_root = clone(rhs.m_root);
+    m_n_nodes = rhs.m_n_nodes;
+    m_key_less = rhs.m_key_less;
+
+    return *this;
+}
+/*========================================================================================================*/
+//Copy Constructor
+ template<typename KeyType , typename ValueType, typename KeyTypeLess >
+BST< KeyType, ValueType, KeyTypeLess >::BST  (const BST< KeyType, ValueType, KeyTypeLess > & other)   
+{
+    *this = other;
+}
+/*========================================================================================================*/
