@@ -89,17 +89,53 @@ int main()
         std::cout << std::endl;
         
 
-        std::cout << "Inorder:"<<std::endl;
+        std::cout << ">>> Inorder:"<<std::endl;
         tree.inorder(Print);
         std::cout << std::endl;
 
-        std::cout << "Preorder:"<<std::endl;
+        std::cout << ">>> Preorder:"<<std::endl;
         tree.preorder(Print);
         std::cout << std::endl;
 
-        std::cout << "Postorder:"<<std::endl;
+        std::cout << ">>> Postorder:"<<std::endl;
         tree.postorder(Print);
         std::cout << std::endl;
+
+
+        std::cout << ">>> Retrieve: 3"<<std::endl;
+        std::string value = "-";
+
+        std::cout <<  "Valor antes: " << value;
+        if (tree.retrieve(3, value)){
+            std::cout <<  " Valor depois: " << value << std::endl;
+        }else{
+            std::cout <<  " Valor depois: " << value << " Não encontrado" << std::endl;
+        }
+         
+        std::cout << ">>> Retrieve: 5"<<std::endl;
+        value = "-";
+        std::cout <<  "Valor antes: " << value;        
+        if (tree.retrieve(5, value)){
+            std::cout <<  " Valor depois: " << value << std::endl;
+        }else{
+            std::cout <<  " Valor depois: " << value << " Não encontrado" << std::endl;
+        }        
+    
+        std::cout << ">>> Contains: 7"<<std::endl;
+        if (tree.contains(7)){
+            std::cout <<  "True" << std::endl;
+        }else{
+            std::cout <<  "False" << std::endl;
+        }
+         
+        std::cout << ">>> Contains: 5"<<std::endl;
+        if (tree.contains(5)){
+            std::cout <<  "True" << std::endl;
+        }else{
+            std::cout <<  "False" << std::endl;
+        }        
+
+
     }
 
     return EXIT_SUCCESS;

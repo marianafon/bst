@@ -27,14 +27,19 @@ void BST< KeyType, ValueType, KeyTypeLess >::insert( const KeyType & key , const
 template < typename KeyType, typename ValueType, typename KeyTypeLess>
 bool BST< KeyType, ValueType, KeyTypeLess >::contains( const BTNode * root , const KeyType & key ) const
 {
-    if (root->key == key)
+    if (root == nullptr)
     {
-        return true;
+        return false;
     }else{
-        if(m_key_less(root->key, key)){
-            contains(root->left, key);
+        if (root->key == key)
+        {
+            return true;
         }else{
-            contains(root->right, key);
+            if(m_key_less(root->key, key)){
+                contains(root->left, key);
+            }else{
+                contains(root->right, key);
+            }
         }
     }
 
@@ -51,15 +56,20 @@ bool BST< KeyType, ValueType, KeyTypeLess >::contains(const KeyType & key ) cons
 template < typename KeyType, typename ValueType, typename KeyTypeLess>
 bool BST< KeyType, ValueType, KeyTypeLess >::retrieve( const BTNode * root , const KeyType & key, ValueType & value ) const
 {
-    if (root->key == key)
+    if (root == nullptr)
     {
-        value = root->data;
-        return true;
+        return false;
     }else{
-        if(m_key_less(root->key, key)){
-            retrieve(root->left, key);
+        if (root->key == key)
+        {
+            value = root->data;
+            return true;
         }else{
-            retrieve(root->right, key);
+            if(m_key_less(root->key, key)){
+                retrieve(root->left, key, value);
+            }else{
+                retrieve(root->right, key, value);
+            }
         }
     }
 
@@ -69,7 +79,7 @@ bool BST< KeyType, ValueType, KeyTypeLess >::retrieve( const BTNode * root , con
 template < typename KeyType, typename ValueType, typename KeyTypeLess>
 bool BST< KeyType, ValueType, KeyTypeLess >::retrieve( const KeyType & key, ValueType & value ) const
 {
-    return retrieve(m_root, value);
+    return retrieve(m_root, key, value);
 }
 /*========================================================================================================*/
 //find_min
