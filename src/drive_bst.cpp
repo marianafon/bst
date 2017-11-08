@@ -112,6 +112,10 @@ int main()
         std::cout << "\n>>> Remove:\n" << tree << std::endl;
         std::cout << std::endl;
 
+        tree.remove(data[3].first);
+        std::cout << "\n>>> Remove:\n" << tree << std::endl;
+        std::cout << std::endl;
+
         std::cout << ">>> Size: " << tree.size() << std::endl;
 
         std::cout << ">>> Inorder:"<<std::endl;

@@ -88,7 +88,7 @@ bool BST< KeyType, ValueType, KeyTypeLess >::retrieve( const KeyType & key, Valu
 template < typename KeyType, typename ValueType, typename KeyTypeLess>
 const ValueType & BST< KeyType, ValueType, KeyTypeLess >::find_min(void) const
 {
-    return get_smallest_leaf->data;
+    return get_smallest_leaf(root)->data;
 }
 //get_smallest_leaf
 template < typename KeyType, typename ValueType, typename KeyTypeLess>
@@ -106,7 +106,7 @@ const typename BST< KeyType, ValueType, KeyTypeLess >::BTNode* BST< KeyType, Val
 template < typename KeyType, typename ValueType, typename KeyTypeLess>
 const ValueType & BST< KeyType, ValueType, KeyTypeLess >::find_max(void) const
 {
-    return get_bigger_leaf->data;
+    return get_bigger_leaf(root)->data;
 }
 template < typename KeyType, typename ValueType, typename KeyTypeLess>
 const typename BST< KeyType, ValueType, KeyTypeLess >::BTNode* BST< KeyType, ValueType, KeyTypeLess >::get_bigger_leaf(const BTNode * root) const
