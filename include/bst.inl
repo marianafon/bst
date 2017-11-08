@@ -228,7 +228,6 @@ void BST< KeyType, ValueType, KeyTypeLess >::postorder(const UnaryFunction & vis
 }
 /*========================================================================================================*/
 //Clone
-
 template < typename KeyType, typename ValueType, typename KeyTypeLess>
 typename BST< KeyType, ValueType, KeyTypeLess >::BTNode * BST< KeyType, ValueType, KeyTypeLess >::clone(const BTNode * root)   
 {
@@ -250,13 +249,14 @@ typename BST< KeyType, ValueType, KeyTypeLess >::BTNode * BST< KeyType, ValueTyp
     return newRoot; 
 }
 /*========================================================================================================*/
+//Operator=
 template<typename KeyType , typename ValueType, typename KeyTypeLess >
 BST< KeyType, ValueType, KeyTypeLess > & BST< KeyType, ValueType, KeyTypeLess >::operator= (const BST< KeyType, ValueType, KeyTypeLess > & rhs)   
 {
+    m_key_less = rhs.m_key_less;
     delete(m_root);
     m_root = clone(rhs.m_root);
     m_n_nodes = rhs.m_n_nodes;
-    m_key_less = rhs.m_key_less;
 
     return *this;
 }
@@ -266,5 +266,35 @@ BST< KeyType, ValueType, KeyTypeLess > & BST< KeyType, ValueType, KeyTypeLess >:
 BST< KeyType, ValueType, KeyTypeLess >::BST  (const BST< KeyType, ValueType, KeyTypeLess > & other)   
 {
     *this = other;
+}
+/*========================================================================================================*/
+//Operator= List
+template<typename KeyType , typename ValueType, typename KeyTypeLess >
+BST< KeyType, ValueType, KeyTypeLess > ::BST(std::initializer_list< BST< KeyType, ValueType, KeyTypeLess >::node_content_type > ilist, const KeyTypeLess & comp) : m_key_less(comp)   
+{
+    m_n_nodes = 0;
+    for( const auto & e : ilist )
+    {
+        //tree.insert( data[e].first, data[e].second );
+        *this.insert(e.first, e.second);
+    }
+
+    //return *this;
+}
+/*========================================================================================================*/
+ //Private Clear
+template<typename KeyType , typename ValueType, typename KeyTypeLess >
+void BST< KeyType, ValueType, KeyTypeLess >::clear(BTNode *& root)   
+{
+    //~BST();
+    delete(root);
+    m_n_nodes = 0;   
+}
+/*========================================================================================================*/
+//Public Clear
+template<typename KeyType , typename ValueType, typename KeyTypeLess >
+void BST< KeyType, ValueType, KeyTypeLess >::clear( void )   
+{
+    return clear(m_root);
 }
 /*========================================================================================================*/

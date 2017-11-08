@@ -53,6 +53,22 @@ int main()
         { 10, "ten" }
     };
 
+    /*
+    std::initializer_list<test_type> dataList[] = {
+        { 0, "zero" },
+        { 1, "one" },
+        { 2, "two" },
+        { 3, "three" },
+        { 4, "four" },
+        { 5, "five" },
+        { 6, "six" },
+        { 7, "seven" },
+        { 8, "eight" },
+        { 9, "nine" },
+        { 10, "ten" }
+    };
+    */
+
     // Print the input
     {
         size_t insertion_order[] = { 5, 1, 7, 0, 3, 2 };
@@ -85,8 +101,9 @@ int main()
         
         std::cout << "\n>>> Initial Tree:\n" << tree << std::endl;
 
-        //BST< size_t, std::string, decltype( compare_keys ) > copyTree(tree);
+        //BST< size_t, std::string, CompareKey > copyTree(tree);
         //std::cout << "\n>>> Copy Tree:\n" << copyTree << std::endl;
+        //BST< size_t, std::string, CompareKey > copyTree(data, CompareKey);
 
         std::cout << ">>> Empty: " << tree.empty();        
         std::cout << ">>> Size: " << tree.size() << std::endl;;

@@ -222,6 +222,7 @@ class BST
          */
         ~BST(){
             delete( m_root );
+            m_n_nodes = 0;
         };
 
         //! The range constructor.
